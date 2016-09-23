@@ -28,6 +28,8 @@ NSUInteger DeviceSystemMajorVersion() {
     float _lowerTouchOffset;
     float _upperTouchOffset;
     float _stepValueInternal;
+    
+    UIImage *_trackBackgroundImage;
 }
 
 @property (retain, nonatomic) UIImageView* track;
@@ -42,7 +44,6 @@ NSUInteger DeviceSystemMajorVersion() {
 
 #pragma mark -
 #pragma mark - Constructors
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -258,6 +259,12 @@ NSUInteger DeviceSystemMajorVersion() {
     }
     
     return _trackBackgroundImage;
+}
+
+- (void) setTrackBackgroundImage:(UIImage *)image {
+    _trackBackgroundImage = image;
+    _trackBackground.image = image;
+    [self setNeedsLayout];
 }
 
 - (UIImage *)trackImage
